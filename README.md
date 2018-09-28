@@ -1,2 +1,2 @@
-# cs370_project
-CS370: Software Design and Development Soundboard Project
+# CS370 Soundboard Project
+CS370 (Software Design and Development) Soundboard Project
