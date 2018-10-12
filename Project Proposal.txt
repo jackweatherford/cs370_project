@@ -1,0 +1,13 @@
+﻿Team Members: Sam Smetzer, Jack Weatherford, Isaac Davidson, Darin Brown
+
+Team Name: Sound Mixers
+
+Project Name: SoundBoard App
+ 
+Description: 
+Our app will be able to play and record audio by the user. It will have at least one track player to cue sounds bites one after the other, and it will also be able to cut and edit these bites. It will also have buttons that can be tied to a certain audio bites, for custom use.
+We will be using Android Studio to develop the app. We will probably develop our own APIs, but there could libraries out there to help with our audio specific needs.
+
+User Stories:
+        As a Journalist, I want a way to record my story ideas, so I can replay them later.
+        As a Reddit user, I want to be able to play audio memes, so I can annoy people offline as well as online.
