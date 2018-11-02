@@ -1,4 +1,6 @@
 package com.example.student.soundboard;
+import android.R;
+import android.widget.*;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,3 +13,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
+
