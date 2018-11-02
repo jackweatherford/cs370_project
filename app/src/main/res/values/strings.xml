@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Soundboard</string>
+    <string name="record_save_sounds">RECORD/SAVE SOUNDS</string>
+    <string name="main_menu">MAIN MENU</string>
 </resources>

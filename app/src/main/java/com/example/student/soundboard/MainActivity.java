@@ -1,5 +1,4 @@
 package com.example.student.soundboard;
-import android.R;
 import android.widget.*;
 
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(android.R.layout.activity_list_item);
     }
 }
 
