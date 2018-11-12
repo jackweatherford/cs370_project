@@ -2,10 +2,14 @@ package com.example.student.soundboard;
 
 import java.io.File;
 public class sound_file {
+
     private File soundFile;
     private String fileName;
     private String imageID;
 
+    public sound_file(File soundFile) {
+        this.soundFile = R.drawable.;
+    }
     public File getSoundFile() {
         return soundFile;
     }
