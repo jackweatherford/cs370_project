@@ -1,4 +1,4 @@
-package com.example.isaac.recordactivity;
+package com.example.student.soundboard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.content.pm.PackageManager;
