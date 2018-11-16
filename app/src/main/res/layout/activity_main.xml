@@ -4,15 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundColor="black"
+    android:backgroundTint="@color/colorPrimaryDark"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="317dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:text="Main Menu"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="36sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="110dp"
+        android:layout_height="135dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+        app:srcCompat="@drawable/microphone" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="110dp"
+        android:layout_height="135dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+        app:srcCompat="@drawable/play"
+        tools:layout_editor_absoluteX="72dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="112dp"
+        android:layout_height="139dp"
+        app:layout_constraintStart_toStartOf="@+id/imageButton5"
+        app:srcCompat="@drawable/colorSoundButtons"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="117dp"
+        android:layout_height="141dp"
+        app:srcCompat="@drawable/playList"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>
