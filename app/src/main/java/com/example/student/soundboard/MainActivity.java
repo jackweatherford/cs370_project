@@ -11,7 +11,6 @@ import android.media.MediaPlayer;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton playButton;
-    private Button exitButton;
     MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
+}
 
     @Override
     protected void onPause() {
@@ -45,6 +44,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mp.start();
+
     }
 }
