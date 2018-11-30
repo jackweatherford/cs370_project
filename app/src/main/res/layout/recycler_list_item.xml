@@ -10,8 +10,10 @@
     tools:context=".ListViewHolder">
 
     <TextView
-        android:id="@+id/recycler_file_name"
+        android:id="@+id/recycler_item_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="42dp" />
+
+
 
 </LinearLayout>
