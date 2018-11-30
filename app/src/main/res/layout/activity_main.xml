@@ -10,210 +10,176 @@
     android:visibility="visible"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="140dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="8dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="4dp"
-        android:paddingRight="8dp"
-        android:text="@string/record_save_sounds"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+    <LinearLayout
+        android:id="@+id/baseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="10dp">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="317dp"
-        android:layout_height="50dp"
-        android:background="@android:color/black"
-        android:text="@string/main_menu"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="1dp" />
-    android:textSize="36dp"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/layoutMainMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_gravity="top|center_vertical|center"
+            android:layout_marginTop="10dp"
+            android:gravity="top|center_horizontal"
+            android:orientation="horizontal">
 
-    <android.support.constraint.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/black"
+                android:text="@string/main_menu"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="38dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <android.support.constraint.Group
-        android:id="@+id/group2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <android.support.constraint.Group
-        android:id="@+id/group3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        style="@android:style/Widget.ImageButton"
-        android:layout_width="135dp"
-        android:layout_height="122dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/black"
-        android:padding="8dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="4dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442"
-        app:srcCompat="@drawable/play" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="136dp"
-        android:layout_height="119dp"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/black"
-        android:padding="8dp"
-        android:paddingBottom="4dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="4dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438"
-        app:srcCompat="@drawable/microphone" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="135dp"
-        android:layout_height="122dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:padding="8dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="4dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton6"
-        app:srcCompat="@drawable/play_list" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="130dp"
-        android:layout_height="126dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.861"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777"
-        app:srcCompat="@drawable/color_sound_buttons" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="139dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:padding="8dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="4dp"
-        android:text="PLAY IN ORDER"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.31"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.482" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="139dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="4dp"
-        android:text="EDIT LIST"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="135dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:paddingBottom="4dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="4dp"
-        android:text="EDIT BOARD"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        <LinearLayout
+            android:id="@+id/layoutTextTopButtons"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:orientation="horizontal">
 
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:gravity="bottom"
+                android:paddingBottom="2dp"
+                android:text="PLAY IN ORDER"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="135dp"
+                android:layout_height="37dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:gravity="bottom|center"
+                android:paddingTop="4dp"
+                android:text="@string/record_save_sounds"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutTopButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="122dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:visibility="visible">
+
+
+            <ImageButton
+                android:id="@+id/imageButtonPlay"
+                style="@android:style/Widget.ImageButton"
+                android:layout_width="135dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/black"
+                android:padding="4dp"
+                android:paddingBottom="0sp"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/play" />
+
+            <ImageButton
+                android:id="@+id/imageButtonRecord"
+                android:layout_width="135dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/black"
+                android:padding="4dp"
+                android:paddingBottom="0sp"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/microphone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutBottomButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="122dp"
+            android:layout_gravity="center"
+            android:gravity="top|fill_vertical|center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButtonEditSongs"
+
+                android:layout_width="135dp"
+                android:layout_height="122dp"
+                android:padding="4dp"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/play_list" />
+
+            <ImageButton
+                android:id="@+id/imageButtonEditBoard"
+                android:layout_width="135dp"
+                android:layout_height="122dp"
+                android:padding="4dp"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/color_sound_buttons" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTextBottomButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:gravity="top|center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="135dp"
+                android:layout_height="39dp"
+
+                android:text="EDIT LIST"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textColorLink="@android:color/white"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="135dp"
+                android:layout_height="39dp"
+
+                android:text="EDIT BOARD"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
