@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    android:backgroundTint="@color/colorPrimaryDark"
-    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
     android:visibility="visible"
     tools:context=".MainActivity">
 

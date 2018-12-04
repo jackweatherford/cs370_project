@@ -9,7 +9,7 @@ public class ListViewHolder {
     private TextView fileName;
 
     public ListViewHolder(View itemView) {
-        super(itemView);
+        super();
         fileName = itemView.findViewById(R.id.recycler_file_name);
     }
 

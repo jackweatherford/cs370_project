@@ -9,4 +9,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Soundboard" parent="android:Theme.Material.NoActionBar" >
+        <item name="android:colorPrimaryDark">@color/primary_dark_material_dark_1</item>
+        <item name="android:colorPrimary">@color/primary_material_dark</item>
+    </style>
+
 </resources>

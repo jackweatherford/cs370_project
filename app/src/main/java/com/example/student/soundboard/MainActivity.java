@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         editboardButton = findViewById(R.id.imageButtonEditBoard);
-        editboardButton.setOnClickListener(new View.OnClickListener() {
+ /*       editboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, BoardActivity.class));
             }
-        });
+        });*/
 
 
 }
