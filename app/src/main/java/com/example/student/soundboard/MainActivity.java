@@ -1,5 +1,6 @@
 
 package com.example.student.soundboard;
+import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 
@@ -11,7 +12,12 @@ import android.media.MediaPlayer;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton playButton;
+    private ImageButton recordButton;
+    private ImageButton editboardButton;
+
+    private ImageButton editlistButton;
     MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +37,41 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        editlistButton = findViewById(R.id.imageButtonEditSongs);
+        editlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent Soundlist = new Intent(MainActivity.this, Sound_listActivity.class);
+                startActivity(Soundlist);
+            }
+        });
+
+        recordButton = findViewById(R.id.imageButtonRecord);
+        recordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RecordActivity.class));
+            }
+        });
+
+        editboardButton = findViewById(R.id.imageButtonEditBoard);
+        editboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, BoardActivity.class));
+            }
+        });
+
 
 }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mp.pause();
+        if(mp.isPlaying()) {
+            mp.pause();
+            playButton.setImageResource(R.drawable.play);
+        }
 
     }
 
@@ -45,5 +79,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mp.pause();
     }
 }
