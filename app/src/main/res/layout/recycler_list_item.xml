@@ -9,7 +9,7 @@
     android:padding="1dp"
     tools:context=".ListViewHolder">
 
-    <TextView
+    <Button
         android:id="@+id/recycler_item_name"
         android:layout_width="match_parent"
         android:layout_height="42dp" />

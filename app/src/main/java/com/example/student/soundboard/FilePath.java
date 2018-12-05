@@ -21,15 +21,6 @@ public class FilePath {
         return files.length;
     }
 
-    public FilePath() {
-        path =  Environment.getExternalStorageDirectory().toString()+"/Pictures";
-        Log.d(TAG, "Path: " + path);
-        directory = new File(path);
-        Log.d(TAG, "path exists? " + directory.isDirectory());
-        files = directory.listFiles();
-        Log.d(TAG, "Size: "+ this.size());
-
-    }
 
     public void setDirectory(File directory) {
         this.directory = directory;
