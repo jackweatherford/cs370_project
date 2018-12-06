@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mp = MediaPlayer.create(this, R.raw.test);
-        playButton = findViewById(R.id.imageButton3);
+/*        playButton = findViewById(R.id.imageButton3);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     playButton.setImageResource(R.drawable.pause);
                 }
             }
-        });
+        })*/;
 
     }
     }
