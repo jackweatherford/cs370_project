@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(mp.isPlaying()){
                     mp.pause();
-                    playButton.setImageResource(R.drawable.play);
+                    playButton.setImageResource(R.drawable.main_play);
                 }
                 else {
                     mp.start();
-                    playButton.setImageResource(R.drawable.pause);
+                    playButton.setImageResource(R.drawable.main_pause);
                 }
             }
         });
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         if(mp.isPlaying()) {
             mp.pause();
-            playButton.setImageResource(R.drawable.play);
+            playButton.setImageResource(R.drawable.main_play);
         }
 
     }
@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        mp.pause();
+        if (mp.isPlaying()) {
+            mp.stop();
+        }
     }
 }
