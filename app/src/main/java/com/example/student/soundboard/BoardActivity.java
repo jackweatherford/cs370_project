@@ -2,9 +2,9 @@ package com.example.student.soundboard;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
@@ -13,8 +13,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.io.IOException;
 
 public class BoardActivity extends AppCompatActivity {
 
@@ -33,6 +31,8 @@ public class BoardActivity extends AppCompatActivity {
     private TextView button2text;
     private boolean button2_enabled;
     private MediaPlayer mp2;
+    private String mp2_filepath;
+
     private ImageButton button3;
     private TextView button3text;
     private boolean button3_enabled;
@@ -71,6 +71,8 @@ public class BoardActivity extends AppCompatActivity {
     private ImageButton settingsButton;
     private boolean editmode = true;
 
+    private SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,23 +98,6 @@ public class BoardActivity extends AppCompatActivity {
         button8 = findViewById(R.id.imageButton8);
         button9 = findViewById(R.id.imageButton9);
 
-        /*SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPref.edit();
-        button1.setBackgroundColor(sharedPref.getInt("button1color", getResources()
-                .getColor(android.R.color.darker_gray)));
-        button1_enabled = sharedPref.getBoolean("button1enabled", false);
-        String img = sharedPref.getString("button1img", "None");
-        if (img.equals("Flame"))
-            button1.setImageResource(R.drawable.flame);
-        else if (img.equals("Leaf"))
-            button1.setImageResource(R.drawable.leaf);
-        else if (img.equals("Water Droplet"))
-            button1.setImageResource(R.drawable.water);
-        else if (img.equals("Music Note"))
-            button1.setImageResource(R.drawable.note);
-        else
-            button1.setImageResource(android.R.color.transparent);*/
-
         mp1 = MediaPlayer.create(this, R.raw.test);
         mp2 = MediaPlayer.create(this, R.raw.test);
         mp3 = MediaPlayer.create(this, R.raw.test);
@@ -123,8 +108,12 @@ public class BoardActivity extends AppCompatActivity {
         mp8 = MediaPlayer.create(this, R.raw.test);
         mp9 = MediaPlayer.create(this, R.raw.test);
 
+        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
         settingsButton = findViewById(R.id.settingsButton);
+        settingsButton.setVisibility(View.VISIBLE);
         removeButton = findViewById(R.id.removeButton);
+        removeButton.setVisibility(View.VISIBLE);
 
         addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -160,9 +149,8 @@ public class BoardActivity extends AppCompatActivity {
                 else if (button9_enabled)
                     button9text.setText("\nEDIT");
 
-                if (!button1_enabled) {
+                if (!button1_enabled)
                     button1_enabled = handleButton(button1, button1text, button1_enabled, mp1);
-                }
                 else if (!button2_enabled)
                     button2_enabled = handleButton(button2, button2text, button2_enabled, mp2);
                 else if (!button3_enabled)
@@ -264,10 +252,14 @@ public class BoardActivity extends AppCompatActivity {
             }
         });
 
+        final SharedPreferences.Editor editor = sharedpreferences.edit();
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 button1_enabled = handleButton(button1, button1text, button1_enabled, mp1);
+                editor.putBoolean("button1_enabled", button1_enabled);
+                editor.apply();
             }
         });
 
@@ -275,6 +267,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button2_enabled = handleButton(button2, button2text, button2_enabled, mp2);
+                editor.putBoolean("button2_enabled", button2_enabled);
+                editor.apply();
             }
         });
 
@@ -282,6 +276,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button3_enabled = handleButton(button3, button3text, button3_enabled, mp3);
+                editor.putBoolean("button3_enabled", button3_enabled);
+                editor.apply();
             }
         });
 
@@ -289,6 +285,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button4_enabled = handleButton(button4, button4text, button4_enabled, mp4);
+                editor.putBoolean("button4_enabled", button4_enabled);
+                editor.apply();
             }
         });
 
@@ -296,6 +294,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button5_enabled = handleButton(button5, button5text, button5_enabled, mp5);
+                editor.putBoolean("button5_enabled", button5_enabled);
+                editor.apply();
             }
         });
 
@@ -303,6 +303,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button6_enabled = handleButton(button6, button6text, button6_enabled, mp6);
+                editor.putBoolean("button6_enabled", button6_enabled);
+                editor.apply();
             }
         });
 
@@ -310,6 +312,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button7_enabled = handleButton(button7, button7text, button7_enabled, mp7);
+                editor.putBoolean("button7_enabled", button7_enabled);
+                editor.apply();
             }
         });
 
@@ -317,6 +321,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button8_enabled = handleButton(button8, button8text, button8_enabled, mp8);
+                editor.putBoolean("button8_enabled", button8_enabled);
+                editor.apply();
             }
         });
 
@@ -324,6 +330,8 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button9_enabled = handleButton(button9, button9text, button9_enabled, mp9);
+                editor.putBoolean("button9_enabled", button9_enabled);
+                editor.apply();
             }
         });
 
@@ -350,26 +358,141 @@ public class BoardActivity extends AppCompatActivity {
             mp8.pause();
         if(mp9.isPlaying())
             mp9.pause();
+
+        final SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        editor.putBoolean("button1_enabled", button1_enabled);
+        editor.putBoolean("button2_enabled", button2_enabled);
+        editor.putBoolean("button3_enabled", button3_enabled);
+        editor.putBoolean("button4_enabled", button4_enabled);
+        editor.putBoolean("button5_enabled", button5_enabled);
+        editor.putBoolean("button6_enabled", button6_enabled);
+        editor.putBoolean("button7_enabled", button7_enabled);
+        editor.putBoolean("button8_enabled", button8_enabled);
+        editor.putBoolean("button9_enabled", button9_enabled);
+        editor.apply();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+        button1_enabled = sharedpreferences.getBoolean("button1_enabled", false);
+        String color = sharedpreferences.getString("button1_color", "None");
+        String img = sharedpreferences.getString("button1_image", "None");
+        String filepath = sharedpreferences.getString("mp1_filepath", "None");
+        loadbutton(button1, button1_enabled, button1text, color, img, filepath);
+
+        button2_enabled = sharedpreferences.getBoolean("button2_enabled", false);
+        color = sharedpreferences.getString("button2_color", "None");
+        img = sharedpreferences.getString("button2_image", "None");
+        filepath = sharedpreferences.getString("mp2_filepath", "None");
+        loadbutton(button2, button2_enabled, button2text, color, img, filepath);
+
+        button3_enabled = sharedpreferences.getBoolean("button3_enabled", false);
+        color = sharedpreferences.getString("button3_color", "None");
+        img = sharedpreferences.getString("button3_image", "None");
+        filepath = sharedpreferences.getString("mp3_filepath", "None");
+        loadbutton(button3, button3_enabled, button3text, color, img, filepath);
+
+        button4_enabled = sharedpreferences.getBoolean("button4_enabled", false);
+        color = sharedpreferences.getString("button4_color", "None");
+        img = sharedpreferences.getString("button4_image", "None");
+        filepath = sharedpreferences.getString("mp4_filepath", "None");
+        loadbutton(button4, button4_enabled, button4text, color, img, filepath);
+
+        button5_enabled = sharedpreferences.getBoolean("button5_enabled", false);
+        color = sharedpreferences.getString("button5_color", "None");
+        img = sharedpreferences.getString("button5_image", "None");
+        filepath = sharedpreferences.getString("mp5_filepath", "None");
+        loadbutton(button5, button5_enabled, button5text, color, img, filepath);
+
+        button6_enabled = sharedpreferences.getBoolean("button6_enabled", false);
+        color = sharedpreferences.getString("button6_color", "None");
+        img = sharedpreferences.getString("button6_image", "None");
+        filepath = sharedpreferences.getString("mp6_filepath", "None");
+        loadbutton(button6, button6_enabled, button6text, color, img, filepath);
+
+        button7_enabled = sharedpreferences.getBoolean("button7_enabled", false);
+        color = sharedpreferences.getString("button7_color", "None");
+        img = sharedpreferences.getString("button7_image", "None");
+        filepath = sharedpreferences.getString("mp7_filepath", "None");
+        loadbutton(button7, button7_enabled, button7text, color, img, filepath);
+
+        button8_enabled = sharedpreferences.getBoolean("button8_enabled", false);
+        color = sharedpreferences.getString("button8_color", "None");
+        img = sharedpreferences.getString("button8_image", "None");
+        filepath = sharedpreferences.getString("mp8_filepath", "None");
+        loadbutton(button8, button8_enabled, button8text, color, img, filepath);
+
+        button9_enabled = sharedpreferences.getBoolean("button9_enabled", false);
+        color = sharedpreferences.getString("button9_color", "None");
+        img = sharedpreferences.getString("button9_image", "None");
+        filepath = sharedpreferences.getString("mp9_filepath", "None");
+        loadbutton(button9, button9_enabled, button9text, color, img, filepath);
     }
 
     protected boolean handleButton(final ImageButton button, TextView buttontext, boolean button_enabled, MediaPlayer mp) {
+        final SharedPreferences.Editor editor = sharedpreferences.edit();
+
         if (removemode) {
             button.setVisibility(View.GONE);
             button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
             buttontext.setText("");
             button.setImageResource(android.R.color.transparent);
+            if (button.getId() == R.id.imageButton1) {
+                editor.putString("button1_color", "None");
+                editor.putString("button1_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton2) {
+                editor.putString("button2_color", "None");
+                editor.putString("button2_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton3) {
+                editor.putString("button3_color", "None");
+                editor.putString("button3_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton4) {
+                editor.putString("button4_color", "None");
+                editor.putString("button4_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton5) {
+                editor.putString("button5_color", "None");
+                editor.putString("button5_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton6) {
+                editor.putString("button6_color", "None");
+                editor.putString("button6_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton7) {
+                editor.putString("button7_color", "None");
+                editor.putString("button7_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton8) {
+                editor.putString("button8_color", "None");
+                editor.putString("button8_image", "None");
+                editor.apply();
+            }
+            else if (button.getId() == R.id.imageButton9) {
+                editor.putString("button9_color", "None");
+                editor.putString("button9_image", "None");
+                editor.apply();
+            }
             return false;
         }
         else if (editmode) {
             // TODO: Let user select audio of current button (jump to Sound List Activity)
+            // startActivity(new Intent(BoardActivity.this, Sound_listActivity.class));
             // mp.setDataSource(Environment.getExternalStorageDirectory().toString()+"/SoundBoard/PlayList");
-            // editor.putString("mp1filepath", mp1_filepath);
+            // if (button.getId() == R.id.imagebutton1) mp1_filepath = filepath...;
+            // editor.putString("mp1_filepath", mp1_filepath);
             // editor.apply();
 
             final String[] colors = {"Red", "Green", "Blue", "Yellow", "White"};
@@ -395,6 +518,42 @@ public class BoardActivity extends AppCompatActivity {
                     else {
                         button.setBackgroundColor(Color.WHITE);
                     }
+                    if (button.getId() == R.id.imageButton1) {
+                        editor.putString("button1_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton2) {
+                        editor.putString("button2_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton3) {
+                        editor.putString("button3_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton4) {
+                        editor.putString("button4_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton5) {
+                        editor.putString("button5_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton6) {
+                        editor.putString("button6_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton7) {
+                        editor.putString("button7_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton8) {
+                        editor.putString("button8_color", color);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton9) {
+                        editor.putString("button9_color", color);
+                        editor.apply();
+                    }
                 }
             });
             builder.show();
@@ -417,6 +576,42 @@ public class BoardActivity extends AppCompatActivity {
                         button.setImageResource(R.drawable.flame);
                     else
                         button.setImageResource(android.R.color.transparent);
+                    if (button.getId() == R.id.imageButton1) {
+                        editor.putString("button1_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton2) {
+                        editor.putString("button2_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton3) {
+                        editor.putString("button3_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton4) {
+                        editor.putString("button4_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton5) {
+                        editor.putString("button5_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton6) {
+                        editor.putString("button6_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton7) {
+                        editor.putString("button7_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton8) {
+                        editor.putString("button8_image", img);
+                        editor.apply();
+                    }
+                    else if (button.getId() == R.id.imageButton9) {
+                        editor.putString("button9_image", img);
+                        editor.apply();
+                    }
                 }
             });
             builder2.show();
@@ -445,7 +640,7 @@ public class BoardActivity extends AppCompatActivity {
                 buttontext.setVisibility(View.VISIBLE);
             }
             else
-             buttontext.setText("");
+                buttontext.setText("");
         else {
             button.setVisibility(View.GONE);
             buttontext.setText("");
@@ -457,5 +652,45 @@ public class BoardActivity extends AppCompatActivity {
             buttontext.setVisibility(View.VISIBLE);
             buttontext.setText("\nEDIT");
         }
+    }
+
+    protected void loadbutton(ImageButton button, boolean button_enabled, TextView buttontext,
+                              String color, String img, String filepath) {
+        if (button_enabled) {
+            buttontext.setText("\nEDIT");
+            buttontext.setVisibility(View.VISIBLE);
+            button.setVisibility(View.VISIBLE);
+        }
+
+        if (color.equals("Red")) {
+            button.setBackgroundColor(Color.RED);
+        }
+        else if (color.equals("Green")) {
+            button.setBackgroundColor(Color.GREEN);
+        }
+        else if (color.equals("Blue")) {
+            button.setBackgroundColor(Color.BLUE);
+        }
+        else if (color.equals("Yellow")) {
+            button.setBackgroundColor(Color.YELLOW);
+        }
+        else if (color.equals("White")){
+            button.setBackgroundColor(Color.WHITE);
+        }
+        else
+            button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+
+        if (img.equals("Music Note"))
+            button.setImageResource(R.drawable.note);
+        else if (img.equals("Leaf"))
+            button.setImageResource(R.drawable.leaf);
+        else if (img.equals("Water Droplet"))
+            button.setImageResource(R.drawable.water);
+        else if (img.equals("Flame"))
+            button.setImageResource(R.drawable.flame);
+        else
+            button.setImageResource(android.R.color.transparent);
+
+        // load filepath as mediaplayer filepath
     }
 }
