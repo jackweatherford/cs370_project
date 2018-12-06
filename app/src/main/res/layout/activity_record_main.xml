@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainRecordActivity">
+    tools:context=".MainRecordActivity"
+    tools:ignore="MissingDefaultResource">
 
     <LinearLayout
         android:id="@+id/linearLayoutRecorder"
@@ -100,17 +102,21 @@
 
         <Button
             android:id="@+id/listButton"
+            android:background="@color/colorSecondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="61dp"
+            android:layout_marginRight="4dp"
             android:text="Recordings" />
 
         <Button
             android:id="@+id/existRecordButton"
+            android:background="@color/colorSecondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/listButton"
             android:layout_marginTop="61dp"
+            android:layout_marginLeft="4dp"
             android:text="Record From Existing" />
 
     </RelativeLayout>">
