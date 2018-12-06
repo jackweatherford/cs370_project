@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Soundboard</string>
+    <string name="app_name">Sound Bored Soundboard</string>
     <string name="record_save_sounds">RECORD/SAVE SOUNDS</string>
     <string name="main_menu">MAIN MENU</string>
+    <string name="editText">EDIT LIST</string>
+    <string name="editBoardText">EDIT BOARD</string>
+    <string name="playInOrderText">PLAY IN ORDER</string>
 </resources>

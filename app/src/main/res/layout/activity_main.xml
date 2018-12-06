@@ -26,7 +26,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/main_menu"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="0dp"
@@ -40,34 +40,23 @@
 
         <LinearLayout
             android:id="@+id/layoutTextTopButtons"
-            android:layout_width="263dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:orientation="horizontal">
 
-
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="135dp"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="4dp"
+                android:id="@+id/edit_list_text"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_gravity="bottom"
                 android:gravity="bottom"
-                android:paddingBottom="2dp"
-                android:text="PLAY IN ORDER"
+                android:text="EDIT LIST"
+                android:textColor="@color/colorPrimaryAccent"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="135dp"
-                android:layout_height="37dp"
-                android:layout_marginBottom="4dp"
-                android:layout_weight="1"
-                android:gravity="bottom|center"
-                android:paddingTop="4dp"
-                android:text="@string/record_save_sounds"
-                android:textAlignment="center"
-                android:textColor="@android:color/white" />
+
 
         </LinearLayout>
 
@@ -83,31 +72,16 @@
             android:paddingBottom="2dp"
             android:visibility="visible">
 
-
             <ImageButton
-                android:id="@+id/imageButtonPlay"
-                style="@android:style/Widget.ImageButton"
+                android:id="@+id/imageButtonEditSongs"
+
                 android:layout_width="135dp"
                 android:layout_height="122dp"
-                android:layout_marginTop="6dp"
-                android:background="@android:color/black"
                 android:padding="4dp"
-                android:paddingBottom="0sp"
                 android:scaleType="fitXY"
                 android:visibility="visible"
-                app:srcCompat="@drawable/play" />
+                app:srcCompat="@drawable/play_list" />
 
-            <ImageButton
-                android:id="@+id/imageButtonRecord"
-                android:layout_width="135dp"
-                android:layout_height="122dp"
-                android:layout_marginTop="6dp"
-                android:background="@android:color/black"
-                android:padding="4dp"
-                android:paddingBottom="0sp"
-                android:scaleType="fitXY"
-                android:visibility="visible"
-                app:srcCompat="@drawable/microphone" />
 
         </LinearLayout>
 
@@ -120,14 +94,16 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButtonEditSongs"
-
+                android:id="@+id/imageButtonRecord"
                 android:layout_width="135dp"
                 android:layout_height="122dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/black"
                 android:padding="4dp"
+                android:paddingBottom="0sp"
                 android:scaleType="fitXY"
                 android:visibility="visible"
-                app:srcCompat="@drawable/play_list" />
+                app:srcCompat="@drawable/microphone" />
 
             <ImageButton
                 android:id="@+id/imageButtonEditBoard"
@@ -150,24 +126,26 @@
 
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="135dp"
-                android:layout_height="39dp"
-
-                android:text="EDIT LIST"
+                android:id="@+id/recordText"
+                android:layout_width=mat"
+                android:layout_height="37dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:gravity="top|center"
+                android:paddingTop="4dp"
+                android:text="@string/record_save_sounds"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textColorLink="@android:color/white"
-                android:visibility="visible" />
+                android:textColor="@color/colorPrimaryAccent" />
+
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/edit_board_text"
                 android:layout_width="135dp"
                 android:layout_height="39dp"
 
                 android:text="EDIT BOARD"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryAccent" />
         </LinearLayout>
 
         <LinearLayout
