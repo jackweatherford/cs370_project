@@ -20,15 +20,15 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewHolder> {
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View inflatedView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_list_item, parent, false);
+                .inflate(R.layout.recycler_item, parent, false);
         return new ListViewHolder(inflatedView);
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder listViewHolder, int position) {
-        FilePath soundlist = null;
-        soundlist.setDirectory(fileCollection[position]);
+        FilePath soundlist = new FilePath(fileCollection[position]);
+        //soundlist.setDirectory(fileCollection[position]);
         listViewHolder.bindView(soundlist);
     }
 

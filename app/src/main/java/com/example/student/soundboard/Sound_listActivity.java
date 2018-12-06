@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -23,7 +25,7 @@ public class Sound_listActivity extends AppCompatActivity {
     private ImageButton pauseButton;
     MediaPlayer mp;
 
-    FilePath List = new FilePath();
+    FilePath List = new FilePath(Environment.getExternalStorageDirectory().toString()+"/SoundBoard/PlayList");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,8 @@ public class Sound_listActivity extends AppCompatActivity {
 
         List.setPath(Environment.getExternalStorageDirectory().toString()+"/SoundBoard/PlayList");
         Log.d("Files", "Path: " + List.getPath());
-        List.setDirectory(new File(List.getPath()));
-        List.setFiles(List.getDirectory().listFiles());
+        // List.setDirectory(new File(List.getPath()));
+        //List.setFiles(List.getDirectory().listFiles());
         Log.d("Files", "Size: "+ List.size());
 
         ListViewAdapter adapter = new ListViewAdapter(List.getFiles());
@@ -53,10 +55,14 @@ public class Sound_listActivity extends AppCompatActivity {
             }
         });
         pauseButton = findViewById(R.id.pause_button);
-        listButton = findViewById(R.id.recycler_item_name);
-        listButton.setOnClickListener(new View.OnClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
                 mp.stop();
                 try {
                     mp.setDataSource(List.getPath());
@@ -65,8 +71,12 @@ public class Sound_listActivity extends AppCompatActivity {
                 }
                 mp.start();
                 pauseButton.setVisibility(View.VISIBLE);
+            }
 
-                }
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean b) {
+
+            }
         });
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,6 +13,15 @@ public class FilePath {
     private File[] files;
     private String path;
 
+    public FilePath(File file){
+        this.directory = file;
+    }
+    public FilePath(String path) {
+        this.path = path;
+        this.directory = new File(path);
+        this.files = directory.listFiles();
+    }
+
     public File get(int position) {
         return files[position];
     }
@@ -22,13 +31,13 @@ public class FilePath {
     }
 
 
-    public void setDirectory(File directory) {
-        this.directory = directory;
-    }
+ //  public void setDirectory(File directory) {
+//        this.directory = directory;
+//    }
 
-    public void setFiles(File[] files) {
-        this.files = files;
-    }
+//    public void setFiles(File[] files) {
+//        this.files = files;
+//    }
 
     public void setPath(String path) {
         this.path = path;
