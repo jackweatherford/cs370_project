@@ -1,5 +1,6 @@
 package com.example.student.soundboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,17 +16,22 @@ import com.example.student.soundboard.models.Recording;
 import java.io.File;
 import java.util.ArrayList;
 
-public class RecordingListActivity extends AppCompatActivity {
+public class RecordingListSelectActivity extends AppCompatActivity implements RecordingSelectionAdaptor.AdapterCallback {
 
     private RecyclerView recyclerViewRecordings;
     private ArrayList<Recording> recordingArraylist;
-    private RecordingAdapter recordingAdapter;
+    private RecordingSelectionAdaptor recordingSelectionAdaptor;
     private TextView textViewNoRecordings;
+
+    public static final String BUTTON_ID = "";
+    private String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recording_list);
+        setContentView(R.layout.activity_recording_list_select);
+        Intent newIntent = getIntent();
+        id = newIntent.getStringExtra(BUTTON_ID);
         initViews();
         fetchRecordings();
     }
@@ -52,8 +58,8 @@ public class RecordingListActivity extends AppCompatActivity {
         Log.d("Files", "Path: " + path);
         File directory = new File(path);
         File[] files = directory.listFiles();
-        Log.d("Files", "Size: " + files.length);
         if (files != null) {
+            Log.d("Files", "Size: " + files.length);
 
             for (int i = 0; i < files.length; i++) {
 
@@ -76,8 +82,13 @@ public class RecordingListActivity extends AppCompatActivity {
     }
 
     private void setAdapterToRecyclerView() {
-        recordingAdapter = new RecordingAdapter(this,recordingArraylist);
-        recyclerViewRecordings.setAdapter(recordingAdapter);
+        recordingSelectionAdaptor = new RecordingSelectionAdaptor(this,recordingArraylist, id, RecordingListSelectActivity.this);
+        recyclerViewRecordings.setAdapter(recordingSelectionAdaptor);
+    }
+
+    @Override
+    public void onItemClicked(int position){
+        // call back here
     }
 
     @Override

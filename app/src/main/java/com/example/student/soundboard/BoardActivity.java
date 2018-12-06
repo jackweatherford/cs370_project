@@ -1,18 +1,31 @@
 package com.example.student.soundboard;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class BoardActivity extends AppCompatActivity {
 
@@ -25,13 +38,11 @@ public class BoardActivity extends AppCompatActivity {
     private TextView button1text;
     private boolean button1_enabled;
     private MediaPlayer mp1;
-    private String mp1_filepath;
 
     private ImageButton button2;
     private TextView button2text;
     private boolean button2_enabled;
     private MediaPlayer mp2;
-    private String mp2_filepath;
 
     private ImageButton button3;
     private TextView button3text;
@@ -73,10 +84,97 @@ public class BoardActivity extends AppCompatActivity {
 
     private SharedPreferences sharedpreferences;
 
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        final SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        mp1 = new MediaPlayer();
+        mp2 = new MediaPlayer();
+        mp3 = new MediaPlayer();
+        mp4 = new MediaPlayer();
+        mp5 = new MediaPlayer();
+        mp6 = new MediaPlayer();
+        mp7 = new MediaPlayer();
+        mp8 = new MediaPlayer();
+        mp9 = new MediaPlayer();
+
+        Intent newIntent = getIntent();
+        try {
+            if (newIntent.getStringExtra("MP_1") != null) {
+                mp1.release();
+                mp1 = new MediaPlayer();
+                mp1.setDataSource(newIntent.getStringExtra("MP_1"));
+                mp1.prepare();
+                editor.putString("mp1_filepath", newIntent.getStringExtra("MP_1"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_2") != null) {
+                mp2.release();
+                mp2 = new MediaPlayer();
+                mp2.setDataSource(newIntent.getStringExtra("MP_2"));
+                mp2.prepare();
+                editor.putString("mp2_filepath", newIntent.getStringExtra("MP_2"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_3") != null) {
+                mp3.release();
+                mp3 = new MediaPlayer();
+                mp3.setDataSource(newIntent.getStringExtra("MP_3"));
+                mp3.prepare();
+                editor.putString("mp3_filepath", newIntent.getStringExtra("MP_3"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_4") != null) {
+                mp4.release();
+                mp4 = new MediaPlayer();
+                mp4.setDataSource(newIntent.getStringExtra("MP_4"));
+                mp4.prepare();
+                editor.putString("mp4_filepath", newIntent.getStringExtra("MP_4"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_5") != null) {
+                mp5.release();
+                mp5 = new MediaPlayer();
+                mp5.setDataSource(newIntent.getStringExtra("MP_5"));
+                mp5.prepare();
+                editor.putString("mp5_filepath", newIntent.getStringExtra("MP_5"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_6") != null) {
+                mp6.release();
+                mp6 = new MediaPlayer();
+                mp6.setDataSource(newIntent.getStringExtra("MP_6"));
+                mp6.prepare();
+                editor.putString("mp6_filepath", newIntent.getStringExtra("MP_6"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_7") != null) {
+                mp7.release();
+                mp7 = new MediaPlayer();
+                mp7.setDataSource(newIntent.getStringExtra("MP_7"));
+                mp7.prepare();
+                editor.putString("mp7_filepath", newIntent.getStringExtra("MP_7"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_8") != null) {
+                mp8.release();
+                mp8 = new MediaPlayer();
+                mp8.setDataSource(newIntent.getStringExtra("MP_8"));
+                mp8.prepare();
+                editor.putString("mp8_filepath", newIntent.getStringExtra("MP_8"));
+                editor.apply();
+            } else if (newIntent.getStringExtra("MP_9") != null) {
+                mp9.release();
+                mp9 = new MediaPlayer();
+                mp9.setDataSource(newIntent.getStringExtra("MP_9"));
+                mp9.prepare();
+                editor.putString("mp9_filepath", newIntent.getStringExtra("MP_9"));
+                editor.apply();
+            }
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed ONCREATE");
+        }
 
         button1text = findViewById(R.id.button1text);
         button2text = findViewById(R.id.button2text);
@@ -98,17 +196,6 @@ public class BoardActivity extends AppCompatActivity {
         button8 = findViewById(R.id.imageButton8);
         button9 = findViewById(R.id.imageButton9);
 
-        mp1 = MediaPlayer.create(this, R.raw.test);
-        mp2 = MediaPlayer.create(this, R.raw.test);
-        mp3 = MediaPlayer.create(this, R.raw.test);
-        mp4 = MediaPlayer.create(this, R.raw.test);
-        mp5 = MediaPlayer.create(this, R.raw.test);
-        mp6 = MediaPlayer.create(this, R.raw.test);
-        mp7 = MediaPlayer.create(this, R.raw.test);
-        mp8 = MediaPlayer.create(this, R.raw.test);
-        mp9 = MediaPlayer.create(this, R.raw.test);
-
-        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setVisibility(View.VISIBLE);
@@ -252,8 +339,6 @@ public class BoardActivity extends AppCompatActivity {
             }
         });
 
-        final SharedPreferences.Editor editor = sharedpreferences.edit();
-
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -358,6 +443,15 @@ public class BoardActivity extends AppCompatActivity {
             mp8.pause();
         if(mp9.isPlaying())
             mp9.pause();
+        mp1.release();
+        mp2.release();
+        mp3.release();
+        mp4.release();
+        mp5.release();
+        mp6.release();
+        mp7.release();
+        mp8.release();
+        mp9.release();
 
         final SharedPreferences.Editor editor = sharedpreferences.edit();
 
@@ -381,55 +475,133 @@ public class BoardActivity extends AppCompatActivity {
         String color = sharedpreferences.getString("button1_color", "None");
         String img = sharedpreferences.getString("button1_image", "None");
         String filepath = sharedpreferences.getString("mp1_filepath", "None");
-        loadbutton(button1, button1_enabled, button1text, color, img, filepath);
+        loadbutton(button1, button1_enabled, button1text, color, img, filepath, mp1);
+        try {
+            mp1 = new MediaPlayer();
+            mp1.setDataSource(filepath);
+            mp1.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button2_enabled = sharedpreferences.getBoolean("button2_enabled", false);
         color = sharedpreferences.getString("button2_color", "None");
         img = sharedpreferences.getString("button2_image", "None");
         filepath = sharedpreferences.getString("mp2_filepath", "None");
-        loadbutton(button2, button2_enabled, button2text, color, img, filepath);
+        loadbutton(button2, button2_enabled, button2text, color, img, filepath, mp2);
+        try {
+            mp2 = new MediaPlayer();
+            mp2.setDataSource(filepath);
+            mp2.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button3_enabled = sharedpreferences.getBoolean("button3_enabled", false);
         color = sharedpreferences.getString("button3_color", "None");
         img = sharedpreferences.getString("button3_image", "None");
         filepath = sharedpreferences.getString("mp3_filepath", "None");
-        loadbutton(button3, button3_enabled, button3text, color, img, filepath);
+        loadbutton(button3, button3_enabled, button3text, color, img, filepath, mp3);
+        try {
+            mp3 = new MediaPlayer();
+            mp3.setDataSource(filepath);
+            mp3.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button4_enabled = sharedpreferences.getBoolean("button4_enabled", false);
         color = sharedpreferences.getString("button4_color", "None");
         img = sharedpreferences.getString("button4_image", "None");
         filepath = sharedpreferences.getString("mp4_filepath", "None");
-        loadbutton(button4, button4_enabled, button4text, color, img, filepath);
+        loadbutton(button4, button4_enabled, button4text, color, img, filepath, mp4);
+        try {
+            mp4 = new MediaPlayer();
+            mp4.setDataSource(filepath);
+            mp4.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button5_enabled = sharedpreferences.getBoolean("button5_enabled", false);
         color = sharedpreferences.getString("button5_color", "None");
         img = sharedpreferences.getString("button5_image", "None");
         filepath = sharedpreferences.getString("mp5_filepath", "None");
-        loadbutton(button5, button5_enabled, button5text, color, img, filepath);
+        loadbutton(button5, button5_enabled, button5text, color, img, filepath, mp5);
+        try {
+            mp5 = new MediaPlayer();
+            mp5.setDataSource(filepath);
+            mp5.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button6_enabled = sharedpreferences.getBoolean("button6_enabled", false);
         color = sharedpreferences.getString("button6_color", "None");
         img = sharedpreferences.getString("button6_image", "None");
         filepath = sharedpreferences.getString("mp6_filepath", "None");
-        loadbutton(button6, button6_enabled, button6text, color, img, filepath);
+        loadbutton(button6, button6_enabled, button6text, color, img, filepath, mp6);
+        try {
+            mp6 = new MediaPlayer();
+            mp6.setDataSource(filepath);
+            mp6.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button7_enabled = sharedpreferences.getBoolean("button7_enabled", false);
         color = sharedpreferences.getString("button7_color", "None");
         img = sharedpreferences.getString("button7_image", "None");
         filepath = sharedpreferences.getString("mp7_filepath", "None");
-        loadbutton(button7, button7_enabled, button7text, color, img, filepath);
+        loadbutton(button7, button7_enabled, button7text, color, img, filepath, mp7);
+        try {
+            mp7 = new MediaPlayer();
+            mp7.setDataSource(filepath);
+            mp7.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button8_enabled = sharedpreferences.getBoolean("button8_enabled", false);
         color = sharedpreferences.getString("button8_color", "None");
         img = sharedpreferences.getString("button8_image", "None");
         filepath = sharedpreferences.getString("mp8_filepath", "None");
-        loadbutton(button8, button8_enabled, button8text, color, img, filepath);
+        loadbutton(button8, button8_enabled, button8text, color, img, filepath, mp8);
+        try {
+            mp8 = new MediaPlayer();
+            mp8.setDataSource(filepath);
+            mp8.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
 
         button9_enabled = sharedpreferences.getBoolean("button9_enabled", false);
         color = sharedpreferences.getString("button9_color", "None");
         img = sharedpreferences.getString("button9_image", "None");
         filepath = sharedpreferences.getString("mp9_filepath", "None");
-        loadbutton(button9, button9_enabled, button9text, color, img, filepath);
+        loadbutton(button9, button9_enabled, button9text, color, img, filepath, mp9);
+        try {
+            mp9 = new MediaPlayer();
+            mp9.setDataSource(filepath);
+            mp9.prepare();
+        } catch (IOException e) {
+            Log.e("LOG_TAG", "prepare() failed");
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        /*switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }*/
+        Intent intent = new Intent(BoardActivity.this, MainActivity.class);
+        startActivity(intent);
+        return true;
     }
 
     protected boolean handleButton(final ImageButton button, TextView buttontext, boolean button_enabled, MediaPlayer mp) {
@@ -488,13 +660,6 @@ public class BoardActivity extends AppCompatActivity {
             return false;
         }
         else if (editmode) {
-            // TODO: Let user select audio of current button (jump to Sound List Activity)
-            // startActivity(new Intent(BoardActivity.this, Sound_listActivity.class));
-            // mp.setDataSource(Environment.getExternalStorageDirectory().toString()+"/SoundBoard/PlayList");
-            // if (button.getId() == R.id.imagebutton1) mp1_filepath = filepath...;
-            // editor.putString("mp1_filepath", mp1_filepath);
-            // editor.apply();
-
             final String[] colors = {"Red", "Green", "Blue", "Yellow", "White"};
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -554,9 +719,34 @@ public class BoardActivity extends AppCompatActivity {
                         editor.putString("button9_color", color);
                         editor.apply();
                     }
+                    // Ask for Permission to access files:
+                    getPermissionToAcessFiles();
+                    // Start Activity:
+                    Intent intent = new Intent(BoardActivity.this, RecordingListSelectActivity.class);
+                    String id = "0";
+                    if (button.getId() == R.id.imageButton1)
+                        id = "1";
+                    if (button.getId() == R.id.imageButton2)
+                        id = "2";
+                    if (button.getId() == R.id.imageButton3)
+                        id = "3";
+                    if (button.getId() == R.id.imageButton4)
+                        id = "4";
+                    if (button.getId() == R.id.imageButton5)
+                        id = "5";
+                    if (button.getId() == R.id.imageButton6)
+                        id = "6";
+                    if (button.getId() == R.id.imageButton7)
+                        id = "7";
+                    if (button.getId() == R.id.imageButton8)
+                        id = "8";
+                    if (button.getId() == R.id.imageButton9)
+                        id = "9";
+
+                    intent.putExtra(RecordingListSelectActivity.BUTTON_ID, id);
+                    startActivity(intent);
                 }
             });
-            builder.show();
 
             final String[] imgs = {"Flame", "Leaf", "Water Droplet", "Music Note", "None"};
 
@@ -614,6 +804,7 @@ public class BoardActivity extends AppCompatActivity {
                     }
                 }
             });
+            builder.show();
             builder2.show();
 
             button.setVisibility(View.VISIBLE);
@@ -622,6 +813,25 @@ public class BoardActivity extends AppCompatActivity {
             return true;
         }
         else if (button_enabled) {
+            if(mp1.isPlaying())
+                mp1.pause();
+            if(mp2.isPlaying())
+                mp2.pause();
+            if(mp3.isPlaying())
+                mp3.pause();
+            if(mp4.isPlaying())
+                mp4.pause();
+            if(mp5.isPlaying())
+                mp5.pause();
+            if(mp6.isPlaying())
+                mp6.pause();
+            if(mp7.isPlaying())
+                mp7.pause();
+            if(mp8.isPlaying())
+                mp8.pause();
+            if(mp9.isPlaying())
+                mp9.pause();
+
             mp.start();
             return true;
         }
@@ -655,7 +865,7 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     protected void loadbutton(ImageButton button, boolean button_enabled, TextView buttontext,
-                              String color, String img, String filepath) {
+                              String color, String img, String filepath, MediaPlayer mp) {
         if (button_enabled) {
             buttontext.setText("\nEDIT");
             buttontext.setVisibility(View.VISIBLE);
@@ -690,7 +900,31 @@ public class BoardActivity extends AppCompatActivity {
             button.setImageResource(R.drawable.flame);
         else
             button.setImageResource(android.R.color.transparent);
+    }
 
-        // load filepath as mediaplayer filepath
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void getPermissionToAcessFiles() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, R.string.file_access_request_code);
+
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        if (requestCode == R.string.file_access_request_code) {
+            if (grantResults.length == 1 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            } else {
+                Toast.makeText(this, "You must give permissions to use this app. " +
+                        "App is exiting.", Toast.LENGTH_SHORT).show();
+                finishAffinity();
+            }
+        }
+
     }
 }

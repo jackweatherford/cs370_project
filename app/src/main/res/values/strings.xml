@@ -70,4 +70,6 @@
     <string name="record_save_sounds">"    RECORD/SAVE SOUNDS"</string>
     <string name="main_menu">MAIN MENU</string>
     <string name="edit_boar">"EDIT BOARD      "</string>
+
+    <string name="file_access_request_code">FILE_ACCESS_REQUEST_CODE</string>
 </resources>
