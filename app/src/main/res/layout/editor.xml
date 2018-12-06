@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <com.example.isaac.newrecord.WaveformView
+            android:id="@+id/waveform"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <com.example.isaac.newrecord.MarkerView
+            android:id="@+id/startmarker"
+            android:nextFocusDown="@+id/endmarker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/marker_left"
+            android:contentDescription="@string/start_marker" />
+
+        <com.example.isaac.newrecord.MarkerView
+            android:id="@+id/endmarker"
+            android:nextFocusUp="@+id/startmarker"
+            android:nextFocusDown="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/marker_right"
+            android:contentDescription="@string/end_marker" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/info"
+        android:nextFocusUp="@+id/endmarker"
+        android:nextFocusDown="@+id/play"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/AudioFileInfoOverlayText"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="62dip"
+        android:gravity="center" >
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="71dip"
+            android:layout_height="52dip"
+            android:layout_marginTop="6dip"
+            android:layout_marginBottom="6dip"
+            style="@android:style/MediaButton"
+            android:contentDescription="@string/play"
+            android:src="@drawable/play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="62dip"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/listButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recordings" />
+
+        <Button
+            android:id="@+id/existRecordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/listButton"
+
+            android:text="Record From Existing" />
+
+    </LinearLayout>
+
+</LinearLayout>
