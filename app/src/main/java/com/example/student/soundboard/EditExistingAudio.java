@@ -113,7 +113,7 @@ public class EditExistingAudio extends Activity
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
-        Log.v("Ringdroid", "EditActivity OnCreate");
+        Log.v("Record", "EditActivity OnCreate");
         super.onCreate(icicle);
 
         mPlayer = null;
@@ -159,7 +159,7 @@ public class EditExistingAudio extends Activity
     /** Called when the activity is finally destroyed. */
     @Override
     protected void onDestroy() {
-        Log.v("Ringdroid", "EditActivity OnDestroy");
+        Log.v("Record", "EditActivity OnDestroy");
 
         mLoadingKeepGoing = false;
         mRecordingKeepGoing = false;

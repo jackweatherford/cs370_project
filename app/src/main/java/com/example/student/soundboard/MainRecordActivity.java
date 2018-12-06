@@ -95,7 +95,7 @@ public class MainRecordActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void goToRecordExistingActivity(){
-        Intent intent = new Intent(this, SeeExistingAudio.class);
+        Intent intent = new Intent(this, MediaListActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

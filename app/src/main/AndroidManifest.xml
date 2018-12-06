@@ -28,16 +28,6 @@
         <activity android:name=".MainRecordActivity">
         </activity>
         <activity android:name=".RecordingListActivity" />
-        <activity android:name=".SeeExistingAudio">
-            <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.OPENABLE" />
-
-                <data android:mimeType="audio/*" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".EditExistingAudio"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -49,6 +39,7 @@
                 <data android:mimeType="audio/*" />
             </intent-filter>
         </activity>
+        <activity android:name=".MediaListActivity"></activity>
     </application>
 
 </manifest>
