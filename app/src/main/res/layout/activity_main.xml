@@ -10,49 +10,54 @@
     <LinearLayout
         android:id="@+id/baseLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="700dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="10dp"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="82dp">
 
         <LinearLayout
             android:id="@+id/layoutMainMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="top|center_vertical|center"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
             android:gravity="top|center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/textMainMenu"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="0dp"
-                android:background="@android:color/black"
+                android:layout_height="45dp"
+                android:gravity="bottom"
                 android:text="@string/main_menu"
                 android:textAlignment="center"
-                android:textSize="38dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layoutTextTopButtons"
-            android:layout_width="263dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textEdit"
-                android:layout_width="135dp"
+                android:layout_width="match_parent"
                 android:layout_height="39dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="bottom"
                 android:text="EDIT LIST"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textColorLink="@android:color/white"
+                android:textColor="@color/colorPrimary"
                 android:visibility="visible" />
 
         </LinearLayout>
@@ -116,32 +121,33 @@
             android:id="@+id/layoutTextBottomButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
-            android:gravity="top|center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal">
 
 
             <TextView
                 android:id="@+id/textRecord"
-                android:layout_width="135dp"
-                android:layout_height="37dp"
+                android:layout_width="150dp"
+                android:layout_height="39dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="4dp"
-                android:layout_weight="1"
-                android:gravity="bottom|center"
+                android:gravity="top|center"
                 android:paddingTop="4dp"
                 android:text="@string/record_save_sounds"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimary" />
 
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="135dp"
+                android:id="@+id/textEditBoard"
+                android:layout_width="150dp"
                 android:layout_height="39dp"
-
-                android:text="EDIT BOARD"
+                android:layout_marginRight="10dp"
+                android:text="@string/edit_boar"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimary" />
+
         </LinearLayout>
 
         <LinearLayout
