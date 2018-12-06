@@ -5,16 +5,26 @@
         <!-- Customize your theme here. -->
         <item name="android:textAlignment">center</item>
         <item name="android:text">Sound Bored Soundboard</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@android:color/holo_blue_bright</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="android:navigationBarColor">@android:color/background_dark</item>
+        <item name="android:statusBarColor">@android:color/holo_blue_bright</item>
+        <item name="android:textColorPrimary">@android:color/holo_blue_bright</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
 
     </style>
 
     <style name="Soundboard" parent="android:Theme.Material.NoActionBar" >
-        <item name="android:colorPrimaryDark">@color/primary_dark_material_dark_1</item>
-        <item name="android:colorPrimary">@color/primary_material_dark</item>
-        <item name="android:textColorPrimary">?android:attr/colorAccent</item>
-        <item name="android:navigationBarColor">@android:color/holo_blue_bright</item>
+      <item name="colorPrimary">@android:color/holo_blue_bright</item>
+      <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+      <item name="colorAccent">@color/colorAccent</item>
+      <item name="android:colorBackground">@color/background_material_light</item>
+      <item name="android:navigationBarColor">@android:color/background_dark</item>
+      <item name="android:statusBarColor">@android:color/holo_blue_bright</item>
+      <item name="android:textColorPrimary">@android:color/holo_blue_bright</item>
+      <item name="android:textColorSecondary">@color/colorAccent</item>
     </style>
 
     <style name="AudioFileInfoOverlayText">
@@ -34,6 +44,7 @@
         <item name="android:layout_height">fill_parent</item>
         <item name="android:layout_marginLeft">4px</item>
         <item name="android:background">#444444</item>
+
     </style>
 
 
