@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    android:backgroundTint="@color/colorPrimaryDark"
-    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -17,7 +14,9 @@
         android:orientation="vertical"
         android:gravity="center"
         tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="10dp">
+        tools:layout_editor_absoluteY="10dp"
+        android:background="@color/colorPrimaryDark"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:id="@+id/layoutMainMenu"
@@ -29,48 +28,36 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/main_menu"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="0dp"
-                android:background="@android:color/black"
                 android:text="@string/main_menu"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="@color/colorSecondaryText"
                 android:textSize="38dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layoutTextTopButtons"
-            android:layout_width="263dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:orientation="horizontal">
 
-
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="135dp"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="4dp"
+                android:id="@+id/edit_list_text"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_gravity="bottom"
                 android:gravity="bottom"
-                android:paddingBottom="2dp"
-                android:text="PLAY IN ORDER"
+                android:text="EDIT LIST"
+                android:textColor="@color/colorPrimary"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="135dp"
-                android:layout_height="37dp"
-                android:layout_marginBottom="4dp"
-                android:layout_weight="1"
-                android:gravity="bottom|center"
-                android:paddingTop="4dp"
-                android:text="@string/record_save_sounds"
-                android:textAlignment="center"
-                android:textColor="@android:color/white" />
+
 
         </LinearLayout>
 
@@ -86,31 +73,15 @@
             android:paddingBottom="2dp"
             android:visibility="visible">
 
-
             <ImageButton
-                android:id="@+id/imageButtonPlay"
-                style="@android:style/Widget.ImageButton"
+                android:id="@+id/imageButtonEditSongs"
                 android:layout_width="135dp"
                 android:layout_height="122dp"
-                android:layout_marginTop="6dp"
-                android:background="@android:color/black"
                 android:padding="4dp"
-                android:paddingBottom="0sp"
                 android:scaleType="fitXY"
                 android:visibility="visible"
-                app:srcCompat="@drawable/main_play" />
+                app:srcCompat="@drawable/play_list" />
 
-            <ImageButton
-                android:id="@+id/imageButtonRecord"
-                android:layout_width="135dp"
-                android:layout_height="122dp"
-                android:layout_marginTop="6dp"
-                android:background="@android:color/black"
-                android:padding="4dp"
-                android:paddingBottom="0sp"
-                android:scaleType="fitXY"
-                android:visibility="visible"
-                app:srcCompat="@drawable/microphone" />
 
         </LinearLayout>
 
@@ -123,14 +94,16 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButtonEditSongs"
-
+                android:id="@+id/imageButtonRecord"
                 android:layout_width="135dp"
                 android:layout_height="122dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/black"
                 android:padding="4dp"
+                android:paddingBottom="0sp"
                 android:scaleType="fitXY"
                 android:visibility="visible"
-                app:srcCompat="@drawable/play_list" />
+                app:srcCompat="@drawable/microphone" />
 
             <ImageButton
                 android:id="@+id/imageButtonEditBoard"
@@ -153,31 +126,25 @@
 
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="135dp"
+                android:id="@+id/recordText"
+                android:layout_width="150dp"
                 android:layout_height="39dp"
-
-                android:text="EDIT LIST"
+                android:layout_marginBottom="4dp"
+                android:gravity="top|center"
+                android:paddingTop="4dp"
+                android:text="@string/record_save_sounds"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textColorLink="@android:color/white"
-                android:visibility="visible" />
+                android:textColor="@color/colorPrimary" />
+
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="135dp"
+                android:id="@+id/edit_board_text"
+                android:layout_width="150dp"
                 android:layout_height="39dp"
-
-                android:text="EDIT BOARD"
+                android:text="@string/edit_board"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+                android:gravity="top"
+                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
     </LinearLayout>
