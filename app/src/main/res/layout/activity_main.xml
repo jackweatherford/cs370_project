@@ -73,7 +73,17 @@
             android:visibility="visible">
 
             <ImageButton
-                android:id="@+id/imageButtonEditSongs"
+                android:id="@+id/imageButtonPlay"
+                style="@android:style/Widget.ImageButton"
+                android:layout_width="135dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/black"
+                android:padding="4dp"
+                android:paddingBottom="0sp"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/main_play" />
 
                 android:layout_width="135dp"
                 android:layout_height="122dp"
