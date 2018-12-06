@@ -693,8 +693,4 @@ public class BoardActivity extends AppCompatActivity {
 
         // load filepath as mediaplayer filepath
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/isaacRemote
