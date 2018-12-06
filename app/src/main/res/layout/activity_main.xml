@@ -98,7 +98,7 @@
                 android:paddingBottom="0sp"
                 android:scaleType="fitXY"
                 android:visibility="visible"
-                app:srcCompat="@drawable/play" />
+                app:srcCompat="@drawable/main_play" />
 
             <ImageButton
                 android:id="@+id/imageButtonRecord"
