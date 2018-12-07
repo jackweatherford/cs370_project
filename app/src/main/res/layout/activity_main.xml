@@ -54,7 +54,7 @@
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
                 android:text="EDIT LIST"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@android:color/holo_blue_bright"
                 android:textAlignment="center"
                 android:visibility="visible" />
 
@@ -135,7 +135,7 @@
                 android:paddingTop="4dp"
                 android:text="@string/record_save_sounds"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/holo_blue_bright" />
 
 
             <TextView
@@ -145,7 +145,7 @@
                 android:text="@string/edit_board"
                 android:textAlignment="center"
                 android:gravity="top"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/holo_blue_bright" />
         </LinearLayout>
 
     </LinearLayout>
