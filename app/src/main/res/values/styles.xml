@@ -4,13 +4,10 @@
     <style name="AppTheme" parent="Soundboard">
         <!-- Customize your theme here. -->
         <item name="actionBarTheme">@style/Soundboard</item>
-        <item name="android:background">@color/colorPrimaryDark</item>
-        <item name="actionBarItemBackground">@color/colorPrimaryDark</item>
         <item name="android:text">Sound Bored Soundboard</item>
         <item name="colorPrimary">@android:color/holo_blue_bright</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorForeground">@color/foreground_material_light</item>
     </style>
 
 
@@ -22,7 +19,6 @@
         <item name="android:textColorPrimary">?android:attr/colorAccent</item>
         <item name="android:navigationBarColor">@android:color/holo_blue_bright</item>
         <item name="android:colorAccent">@android:color/holo_blue_bright</item>
-        <item name="android:colorForeground">@color/foreground_material_light</item>
     </style>
 
 

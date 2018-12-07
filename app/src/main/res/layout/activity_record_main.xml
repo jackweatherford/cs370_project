@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="60sp"
-            android:textColor="@color/colorSecondaryText"
+            android:textColor="@color/colorAccent"
             android:layout_gravity="center_horizontal"
             />
 
@@ -101,25 +101,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|center"
-        >
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <Button
             android:id="@+id/listButton"
-            android:background="@color/colorSecondaryText"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="61dp"
             android:layout_marginRight="4dp"
+            android:background="@color/colorSecondaryText"
             android:text="Recordings" />
 
         <Button
             android:id="@+id/existRecordButton"
-            android:background="@color/colorSecondaryText"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/listButton"
-            android:layout_marginTop="61dp"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="61dp"
+            android:layout_toRightOf="@id/listButton"
+            android:background="@color/colorSecondaryText"
             android:text="Record From Existing" />
 
     </RelativeLayout>">
