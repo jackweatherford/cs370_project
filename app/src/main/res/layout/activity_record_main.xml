@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainRecordActivity"
+    android:background="@color/colorPrimaryDark"
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
+        android:background="@color/colorPrimaryDark"
         android:layout_marginTop="20dp">
 
         <Chronometer
@@ -21,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="60sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorSecondaryText"
             android:layout_gravity="center_horizontal"
             />
 
@@ -32,14 +33,15 @@
             android:orientation="horizontal"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
+            android:background="@color/colorPrimaryDark"
             android:visibility="gone"
             >
 
             <ImageView
                 android:id="@+id/imageViewPlay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/play"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/play2"
                 android:layout_gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
@@ -62,15 +64,16 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical"
+            android:background="@color/colorPrimaryDark"
             android:layout_marginTop="10dp"
             >
 
 
             <ImageView
                 android:id="@+id/imageViewRecord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/recordimage"
+                android:layout_width="100dp"
+                android:layout_height="175dp"
+                android:src="@drawable/recordimage3"
                 android:background="?android:attr/selectableItemBackground"
                 android:layout_marginEnd="10dp"
                 android:clickable="true"
@@ -79,11 +82,11 @@
 
             <ImageView
                 android:id="@+id/imageViewStop"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/stop"
                 android:background="?android:attr/selectableItemBackground"
-                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:visibility="gone"
                 android:clickable="true"
                 android:focusable="true"
@@ -97,13 +100,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom"
+        android:gravity="bottom|center"
         >
 
         <Button
             android:id="@+id/listButton"
             android:background="@color/colorSecondaryText"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="61dp"
             android:layout_marginRight="4dp"
@@ -112,7 +115,7 @@
         <Button
             android:id="@+id/existRecordButton"
             android:background="@color/colorSecondaryText"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/listButton"
             android:layout_marginTop="61dp"
