@@ -73,7 +73,7 @@
                 android:id="@+id/imageViewRecord"
                 android:layout_width="100dp"
                 android:layout_height="175dp"
-                android:src="@drawable/recordimage3"
+                android:src="@drawable/recordpicture"
                 android:background="?android:attr/selectableItemBackground"
                 android:layout_marginEnd="10dp"
                 android:clickable="true"
